@@ -26,7 +26,9 @@ function App() {
 
     // Added function for handleDelete below so I can call setReview
     const deleteReview = (id) => {
-        console.log(id)
+        if(window.confirm('Are you sure you want to delete?')) {
+            setReview(review.filter((item) => item.id !== id ))
+        }
     }
 
     return (
