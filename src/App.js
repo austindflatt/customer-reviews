@@ -1,11 +1,12 @@
-import Header from "./components/Header"
+import Header from './components/Header'
+import ReviewItem from './components/ReviewItem'
 
 function App() {
     return (
         <>
-        <Header title='Customer Reviews' />
+        <Header />
         <div className="container">
-            <h1>Hello world</h1>
+            <ReviewItem />
         </div>
         </>
     )
