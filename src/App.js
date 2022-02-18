@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Header from './components/Header'
-import ReviewItem from './components/ReviewItem'
+import ReviewList from './components/ReviewList'
 
 function App() {
     const [review, setReview] = useState(
@@ -26,7 +26,7 @@ function App() {
         <>
         <Header />
         <div className="container">
-            <ReviewItem />
+            <ReviewList review={review} />
         </div>
         </>
     )
