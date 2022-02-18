@@ -1,16 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
 
-body {
-    background-color: #f5f8ff;
-    font-family: Cabin;
-}
-
-.container {
-    max-width: 768px;
-    margin: auto;
-    padding: 0 20px;
-}
-
 header {
     height: 70px;
     width: 100%;
@@ -18,14 +7,4 @@ header {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
-}
-
-.card {
-    background-color: #fff;
-    color: #000;
-    border-radius: 15px;
-    box-shadow: 1px 5px 6px -1px #b7b7b7;
-    padding: 40px 50px;
-    margin: 20px 0;
-    position: relative;
 }

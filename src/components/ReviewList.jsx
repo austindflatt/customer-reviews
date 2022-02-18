@@ -1,4 +1,5 @@
 import React from 'react'
+import ReviewItem from './ReviewItem'
 
 // Destructured props below:
 function ReviewList({ review }) {
@@ -9,9 +10,7 @@ function ReviewList({ review }) {
   return (
     <div className="reviews-list">
         {review.map((item) => (
-            <div>
-                {item.rating}
-            </div>
+            <ReviewItem key={item.id} item={item} />
         ))}
     </div>
   )

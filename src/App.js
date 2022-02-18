@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Header from './components/Header'
 import ReviewList from './components/ReviewList'
+import GlobalStyle from './components/styles/GlobalStyle'
 
 function App() {
     const [review, setReview] = useState(
@@ -27,6 +28,7 @@ function App() {
         <Header />
         <div className="container">
             <ReviewList review={review} />
+            <GlobalStyle />
         </div>
         </>
     )
