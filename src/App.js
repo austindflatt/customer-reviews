@@ -27,6 +27,7 @@ function App() {
         <>
         <Header />
         <div className="container">
+            {/* Passed the state above to the review list below  */}
             <ReviewList review={review} />
             <GlobalStyle />
         </div>

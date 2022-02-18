@@ -11,6 +11,21 @@ const GlobalStyle = createGlobalStyle`
         margin: auto;
         padding: 0 20px;
     }
+
+
+    .close,
+    .edit {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        cursor: pointer;
+        background: none;
+        border: none;
+    }
+
+    .edit {
+        right: 40px;
+    }
 `
 
 export default GlobalStyle
