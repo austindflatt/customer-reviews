@@ -1,21 +1,27 @@
 import React from 'react'
+import styled from 'styled-components';
 
-function Header({ title, backgroundColor }) {
-    const headerStyles = {
-        backgroundColor: backgroundColor,
-    }
+export const HeaderTop = styled.div`
+    background-color: #FFF;
+    color: #000;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+`;
+
+function Header({ title }) {
   return (
-    <header style={headerStyles}>
-        <div className='container'>
-            <h2>{title}</h2>
-        </div>
-    </header>
+    <HeaderTop>
+        {title}
+    </HeaderTop>
   )
 }
 
 Header.defaultProps = {
     title: 'Customer Reviews',
-    backgroundColor: '#FFF',
 }
 
 export default Header
