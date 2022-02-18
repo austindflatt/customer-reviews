@@ -23,12 +23,21 @@ function App() {
             }
           ]
     )
+
+    // Added function for handleDelete below so I can call setReview
+    const deleteReview = (id) => {
+        console.log(id)
+    }
+
     return (
         <>
         <Header />
         <div className="container">
             {/* Passed the state above to the review list below  */}
-            <ReviewList review={review} />
+            <ReviewList
+            review={review}
+            handleDelete={deleteReview}
+            />
             <GlobalStyle />
         </div>
         </>

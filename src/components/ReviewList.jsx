@@ -3,7 +3,7 @@ import ReviewItem from './ReviewItem'
 
 // Passed in state below from App.js
 // Then destructured props
-function ReviewList({ review }) {
+function ReviewList({ review, handleDelete }) {
     if(!review || review.length === 0) {
         <p>No reviews found</p>
     }
@@ -17,7 +17,7 @@ function ReviewList({ review }) {
             key={item.id}
             item={item} 
             // Pass in a prop of delete for ReviewItem
-            handleDelete={(id) => console.log(id)}
+            handleDelete={handleDelete}
             />
         ))}
     </div>
