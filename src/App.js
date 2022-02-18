@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import Header from './components/Header'
+import ReviewForm from './components/ReviewForm'
 import ReviewList from './components/ReviewList'
+import ReviewStats from './components/ReviewStats'
 import GlobalStyle from './components/styles/GlobalStyle'
 
 function App() {
@@ -35,6 +37,8 @@ function App() {
         <>
         <Header />
         <div className="container">
+            <ReviewForm />
+            <ReviewStats review={review} />
             {/* Passed the state above to the review list below  */}
             <ReviewList
             review={review}
