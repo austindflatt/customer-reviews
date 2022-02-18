@@ -1,9 +1,8 @@
 import React from 'react'
 
-function Header({ title, backgroundColor, shadow }) {
+function Header({ title, backgroundColor }) {
     const headerStyles = {
         backgroundColor: backgroundColor,
-        boxShadow: shadow
     }
   return (
     <header style={headerStyles}>
@@ -17,7 +16,6 @@ function Header({ title, backgroundColor, shadow }) {
 Header.defaultProps = {
     title: 'Customer Reviews',
     backgroundColor: '#FFF',
-    shadow: '1px 1px 50px -1px #cfd2e0'
 }
 
 export default Header
