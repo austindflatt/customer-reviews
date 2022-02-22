@@ -15,8 +15,16 @@ export const Card = styled.div`
 
 function ReviewForm() {
   const [text, setText] = useState('')
+  const [message, setMessage] = useState('')
 
   const handleTextChange = (event) => {
+    if(text === '') {
+      setMessage(null)
+    } else if(text !== '' && text.trim().length <= 10){
+      setMessage('Review must be at least 10 characters')
+    } else {
+      setMessage(null)
+    }
     setText(event.target.value)
   }
 
@@ -34,6 +42,7 @@ function ReviewForm() {
           />
           <Button type="submit">Submit</Button>
         </div>
+        {message && <div className='messsage'>{message}</div>}
       </form>
     </Card>
   )
