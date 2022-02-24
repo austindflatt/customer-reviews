@@ -1,5 +1,6 @@
 import React from 'react'
-import { useState } from 'react';
+import RatingSelect from './RatingSelect'
+import { useState } from 'react'
 import styled from 'styled-components'
 import Button from './styles/Button'
 
@@ -15,6 +16,7 @@ export const Card = styled.div`
 
 function ReviewForm() {
   const [text, setText] = useState('')
+  const [rating, setRating] = useState(10)
   const [message, setMessage] = useState('')
 
   const handleTextChange = (event) => {
@@ -32,7 +34,7 @@ function ReviewForm() {
     <Card>
       <form>
         <h2>Write a review</h2>
-        {/* // Rating select component will go here */}
+        <RatingSelect />
         <div className="input-group">
           <input
           onChange={handleTextChange}
