@@ -14,7 +14,7 @@ export const Card = styled.div`
     position: relative;
 `;
 
-function ReviewForm() {
+function ReviewForm({ handleAdd }) {
   const [text, setText] = useState('')
   const [rating, setRating] = useState(10)
   const [message, setMessage] = useState('')
@@ -22,7 +22,7 @@ function ReviewForm() {
   const handleTextChange = (event) => {
     if(text === '') {
       setMessage(null)
-    } else if(text !== '' && text.trim().length <= 5){
+    } else if(text !== '' && text.trim().length <= 10){
       setMessage('Review must be at least 10 characters')
     } else {
       setMessage(null)
@@ -30,9 +30,22 @@ function ReviewForm() {
     setText(event.target.value)
   }
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if(text.trim().length > 10){
+      const newReview = {
+        text,
+        rating
+      }
+      handleAdd(newReview);
+
+      setText('');
+    }
+  }
+
   return (
     <Card>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h2>Write a review</h2>
         <RatingSelect select={(rating) => setRating(rating)} />
         <div className="input-group">

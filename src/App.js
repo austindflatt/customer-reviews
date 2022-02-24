@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid'
 import { useState } from 'react'
 import Header from './components/Header'
 import ReviewForm from './components/ReviewForm'
@@ -11,15 +12,15 @@ function App() {
             {
               "id": 1,
               "rating": 5,
-              "text": "This is review item 1 coming from the backend"
+              "text": "Great product, fast shipping!"
             },
             {
               "id": 2,
               "rating": 2,
-              "text": "This is review item 2 coming from the backend"
+              "text": "Didn't like it so much"
             },
             {
-              "text": "This is review item 3 coming from the backend",
+              "text": "Amazing quality! A++",
               "rating": 5,
               "id": 3
             }
@@ -33,11 +34,17 @@ function App() {
         }
     }
 
+    const addReview = (newReview) => {
+      newReview.id = uuidv4();
+      // use the spread operator to take reviews that are already made and putting it into the array
+      setReview([newReview, ...review])
+    }
+
     return (
         <>
         <Header />
         <div className="container">
-            <ReviewForm />
+            <ReviewForm handleAdd={addReview} />
             <ReviewStats review={review} />
             {/* Passed the state above to the review list below  */}
             <ReviewList

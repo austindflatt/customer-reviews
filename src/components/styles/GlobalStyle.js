@@ -47,6 +47,12 @@ const GlobalStyle = createGlobalStyle`
         transition: 0.2s;
         }
     }
+
+    .review-stats {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 `
 
 export default GlobalStyle
