@@ -22,7 +22,7 @@ function ReviewForm() {
   const handleTextChange = (event) => {
     if(text === '') {
       setMessage(null)
-    } else if(text !== '' && text.trim().length <= 10){
+    } else if(text !== '' && text.trim().length <= 5){
       setMessage('Review must be at least 10 characters')
     } else {
       setMessage(null)
@@ -34,7 +34,7 @@ function ReviewForm() {
     <Card>
       <form>
         <h2>Write a review</h2>
-        <RatingSelect />
+        <RatingSelect select={(rating) => setRating(rating)} />
         <div className="input-group">
           <input
           onChange={handleTextChange}

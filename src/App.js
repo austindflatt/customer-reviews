@@ -10,17 +10,17 @@ function App() {
         [
             {
               "id": 1,
-              "rating": 10,
+              "rating": 5,
               "text": "This is review item 1 coming from the backend"
             },
             {
               "id": 2,
-              "rating": 8,
+              "rating": 2,
               "text": "This is review item 2 coming from the backend"
             },
             {
               "text": "This is review item 3 coming from the backend",
-              "rating": 10,
+              "rating": 5,
               "id": 3
             }
           ]
