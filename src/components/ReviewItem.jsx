@@ -17,13 +17,12 @@ export const Card = styled.div`
 export const Rating = styled.div`
     position: relative;
     background: #ffd128;
-    width: 20px;
-    height: 20px;
+    width: 45px;
+    height: 45px;
     padding: 10px;
     text-align: center;
     border-radius: 50%;
     font-size: 19px;
-    border: 1px #000 solid;
     transition: 0.3s;
 
     position: absolute;
