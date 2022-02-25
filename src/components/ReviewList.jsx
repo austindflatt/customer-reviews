@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import ReviewItem from './ReviewItem'
+import ReviewContext from '../context/ReviewContext'
 
 // Passed in state below from App.js
 // Then destructured props
-function ReviewList({ review, handleDelete }) {
+function ReviewList({ handleDelete }) {
+  const { review } = useContext(ReviewContext);
+
     if(!review || review.length === 0) {
         <p>No reviews found</p>
     }
