@@ -2,7 +2,7 @@
 
 import React from 'react'
 import styled from 'styled-components'
-import { FaTimes } from 'react-icons/fa'
+import { FaTimes, FaRegEdit } from 'react-icons/fa'
 
 export const Card = styled.div`
     background-color: #fff;
@@ -34,6 +34,11 @@ function ReviewItem({ item, handleDelete }) {
   return (
     <Card>
         <Rating>{item.rating}</Rating>
+
+        <button onClick={null} className="edit">
+            <FaRegEdit color='black' />
+        </button>
+
         {/* onClick is a function using the prop handleDelete from ReviewList */}
         <button onClick={() => handleDelete(item.id)} className="close">
             <FaTimes color='black' />
