@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { useState } from 'react'
 import Header from './components/Header'
 import ReviewForm from './components/ReviewForm'
+import { ReviewProvider } from './context/ReviewContext'
 import ReviewList from './components/ReviewList'
 import ReviewStats from './components/ReviewStats'
 import GlobalStyle from './components/styles/GlobalStyle'
@@ -42,6 +43,7 @@ function App() {
 
     return (
         <>
+        <ReviewProvider>
         <Header />
         <div className="container">
             <ReviewForm handleAdd={addReview} />
@@ -53,6 +55,7 @@ function App() {
             />
             <GlobalStyle />
         </div>
+        </ReviewProvider>
         </>
     )
 }
