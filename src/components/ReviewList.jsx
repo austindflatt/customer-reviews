@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import ReviewItem from './ReviewItem'
 
 // Passed in state below from App.js
@@ -11,17 +12,41 @@ function ReviewList({ review, handleDelete }) {
   return (
     <div className="reviews-list">
         {/* Mapped through each object from state with .map */}
+        <AnimatePresence>
         {review.map((item) => (
-            // Then embedded the review item and passed that particular item to the component
+          <motion.div
+          key={item.id}
+          initial={{opacity: 0}}
+          animate={{opacity: 1}}
+          exit={{opacity: 0}}
+          >
+            {/* // Then embedded the review item and passed that particular item to the component */}
             <ReviewItem
             key={item.id}
             item={item} 
             // Pass in a prop of delete for ReviewItem
             handleDelete={handleDelete}
             />
+            </motion.div>
         ))}
+        </AnimatePresence>
     </div>
   )
+  // Unedited version below
+  // return (
+  //   <div className="reviews-list">
+  //       {/* Mapped through each object from state with .map */}
+  //       {review.map((item) => (
+  //           // Then embedded the review item and passed that particular item to the component
+  //           <ReviewItem
+  //           key={item.id}
+  //           item={item} 
+  //           // Pass in a prop of delete for ReviewItem
+  //           handleDelete={handleDelete}
+  //           />
+  //       ))}
+  //   </div>
+  // )
 }
 
 export default ReviewList
