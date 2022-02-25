@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import ReviewContext from '../context/ReviewContext'
 
-function ReviewStats({ review }) {
+function ReviewStats() {
+  const { review } = useContext(ReviewContext);
   // Calculate ratings average
   let average = review.reduce((accumulator, current) => {
       return accumulator + current.rating

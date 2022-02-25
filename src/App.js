@@ -50,7 +50,6 @@ function App() {
             <ReviewStats review={review} />
             {/* Passed the state above to the review list below  */}
             <ReviewList
-            review={review}
             handleDelete={deleteReview}
             />
             <GlobalStyle />
