@@ -1,6 +1,6 @@
 import React from 'react'
 import RatingSelect from './RatingSelect'
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import styled from 'styled-components'
 import Button from './styles/Button'
 import ReviewContext from '../context/ReviewContext'
@@ -23,10 +23,17 @@ export const Message = styled.div `
 
 function ReviewForm() {
   const [text, setText] = useState('')
-  const [rating, setRating] = useState(10)
+  const [rating, setRating] = useState(5)
   const [message, setMessage] = useState('')
 
-  const { addReview } = useContext(ReviewContext)
+  const { addReview, reviewEdit } = useContext(ReviewContext)
+
+  useEffect(() => {
+    if(reviewEdit.edit === true) {
+      setText(reviewEdit.item.text)
+      setRating(reviewEdit.item.rating)
+    }
+  }, [reviewEdit])
 
   const handleTextChange = (event) => {
     if(text === '') {
