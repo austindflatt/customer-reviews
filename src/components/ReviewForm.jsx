@@ -1,8 +1,9 @@
 import React from 'react'
 import RatingSelect from './RatingSelect'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import styled from 'styled-components'
 import Button from './styles/Button'
+import ReviewContext from '../context/ReviewContext'
 
 export const Card = styled.div`
   background-color: #fff;
@@ -20,10 +21,12 @@ export const Message = styled.div `
   text-align: center;
 `
 
-function ReviewForm({ handleAdd }) {
+function ReviewForm() {
   const [text, setText] = useState('')
   const [rating, setRating] = useState(10)
   const [message, setMessage] = useState('')
+
+  const { addReview } = useContext(ReviewContext)
 
   const handleTextChange = (event) => {
     if(text === '') {
@@ -43,7 +46,7 @@ function ReviewForm({ handleAdd }) {
         text,
         rating
       }
-      handleAdd(newReview);
+      addReview(newReview);
 
       setText('');
     }

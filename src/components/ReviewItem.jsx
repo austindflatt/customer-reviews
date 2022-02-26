@@ -1,8 +1,9 @@
 // Shows a single review item that will include the rating and text.
 
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { FaTimes, FaRegEdit } from 'react-icons/fa'
+import ReviewContext from '../context/ReviewContext'
 
 export const Card = styled.div`
     background-color: #fff;
@@ -30,7 +31,10 @@ export const Rating = styled.div`
     left: -15px;
 `;
 
-function ReviewItem({ item, handleDelete }) {
+function ReviewItem({ item }) {
+    
+  const {deleteReview} = useContext(ReviewContext);
+
   return (
     <Card>
         <Rating>{item.rating}</Rating>
@@ -40,7 +44,7 @@ function ReviewItem({ item, handleDelete }) {
         </button>
 
         {/* onClick is a function using the prop handleDelete from ReviewList */}
-        <button onClick={() => handleDelete(item.id)} className="close">
+        <button onClick={() => deleteReview(item.id)} className="close">
             <FaTimes color='black' />
         </button>
         <div className="text-display">{item.text}</div>
