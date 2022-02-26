@@ -14,7 +14,6 @@ function App() {
         <div className="container">
             <ReviewForm />
             <ReviewStats />
-            {/* Passed the state above to the review list below  */}
             <ReviewList />
             <GlobalStyle />
         </div>

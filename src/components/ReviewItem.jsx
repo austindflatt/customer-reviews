@@ -33,13 +33,13 @@ export const Rating = styled.div`
 
 function ReviewItem({ item }) {
     
-  const {deleteReview} = useContext(ReviewContext);
+  const { deleteReview, editReview } = useContext(ReviewContext);
 
   return (
     <Card>
         <Rating>{item.rating}</Rating>
 
-        <button onClick={null} className="edit">
+        <button onClick={() => editReview(item)} className="edit">
             <FaRegEdit color='black' />
         </button>
 

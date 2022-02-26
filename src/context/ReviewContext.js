@@ -11,6 +11,10 @@ export const ReviewProvider = ({ children }) => {
             rating: 5
         }
     ]);
+    const [reviewEdit, setReviewEdit] = useState({
+        item: {},
+        edit: false,
+    });
 
     const addReview = (newReview) => {
         newReview.id = uuidv4();
@@ -18,17 +22,26 @@ export const ReviewProvider = ({ children }) => {
         setReview([newReview, ...review])
     }
 
-    // Added function for handleDelete below so I can call setReview
+    // Delete review
     const deleteReview = (id) => {
         if(window.confirm('Are you sure you want to delete?')) {
             setReview(review.filter((item) => item.id !== id ))
         }
     }
 
+    // Set items to be updated
+    const editReview = (item) => {
+        setReviewEdit({
+            item,
+            edit: true
+        })
+    }
+
     return <ReviewContext.Provider value={{
         review,
         deleteReview,
         addReview,
+        editReview,
     }}>
         {children}
     </ReviewContext.Provider>
