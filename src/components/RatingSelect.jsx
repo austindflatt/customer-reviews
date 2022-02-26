@@ -1,6 +1,7 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import styled from 'styled-components'
+import ReviewContext from '../context/ReviewContext'
 
 export const Rating = styled.ul`
   display: flex;
@@ -15,6 +16,13 @@ export const RatingLi = styled.li`
 
 function RatingSelect({ select }) {
   const [selected, setSelected] = useState(5);
+
+  const { reviewEdit } = useContext(ReviewContext)
+
+  useEffect(() => {
+    setSelected(reviewEdit.item.rating)
+  }, [reviewEdit])
+
   const handleChange = (e) => {
     setSelected(+e.currentTarget.value);
     select(+e.currentTarget.value);
