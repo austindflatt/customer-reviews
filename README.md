@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Customer Reviews
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a customer reviews web app built with React. I built this project in order to get more familiar with Hooks, such as useState, Context API/useContext, & useEffect. The useContext hook especially helped as it was easy to get data without passing down props in each component.
 
 ## Available Scripts
 
