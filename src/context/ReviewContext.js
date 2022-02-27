@@ -29,6 +29,14 @@ export const ReviewProvider = ({ children }) => {
         }
     }
 
+    // Function to update review item
+    const updateReview = (id, updatedItem) => {
+        setReview(
+            review.map((item) => item.id === id ? { ...item, 
+            ...updatedItem } : item)
+            )
+        }
+
     // Set items to be updated
     const editReview = (item) => {
         setReviewEdit({
@@ -39,10 +47,11 @@ export const ReviewProvider = ({ children }) => {
 
     return <ReviewContext.Provider value={{
         review,
+        reviewEdit,
         deleteReview,
         addReview,
         editReview,
-        reviewEdit,
+        updateReview
     }}>
         {children}
     </ReviewContext.Provider>

@@ -26,7 +26,7 @@ function ReviewForm() {
   const [rating, setRating] = useState(5)
   const [message, setMessage] = useState('')
 
-  const { addReview, reviewEdit } = useContext(ReviewContext)
+  const { addReview, reviewEdit, updateReview } = useContext(ReviewContext)
 
   useEffect(() => {
     if(reviewEdit.edit === true) {
@@ -53,7 +53,12 @@ function ReviewForm() {
         text,
         rating
       }
-      addReview(newReview);
+
+      if(reviewEdit.edit === true){
+        updateReview(reviewEdit.item.id, newReview)
+      } else {
+        addReview(newReview);
+      }
 
       setText('');
     }
