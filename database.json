@@ -1,9 +1,9 @@
 {
-    "review": [
-        {
-            "id": 1,
-            "rating": 5,
-            "text": "This is our first review"
-        }
-    ]
+  "review": [
+    {
+      "id": 1,
+      "rating": 5,
+      "text": "This is our first review"
+    }
+  ]
 }
