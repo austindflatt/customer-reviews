@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid'
 const ReviewContext = createContext();
 
 export const ReviewProvider = ({ children }) => {
+    const [isLoading, setIsLoading] = useState(true);
     const [review, setReview] = useState([]);
     const [reviewEdit, setReviewEdit] = useState({
         item: {},
@@ -19,6 +20,7 @@ export const ReviewProvider = ({ children }) => {
         const response = await fetch('http://localhost:3001/review?_sort=id&_order=desc');
         const data = await response.json();
         setReview(data);
+        setIsLoading(false);
     }
 
     const addReview = (newReview) => {
@@ -53,6 +55,7 @@ export const ReviewProvider = ({ children }) => {
     return <ReviewContext.Provider value={{
         review,
         reviewEdit,
+        isLoading,
         deleteReview,
         addReview,
         editReview,

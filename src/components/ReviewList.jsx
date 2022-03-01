@@ -2,17 +2,19 @@ import React, { useContext } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import ReviewItem from './ReviewItem'
 import ReviewContext from '../context/ReviewContext'
+import spinner from './assets/spinner.gif'
 
 // Passed in state below from App.js
 // Then destructured props
 function ReviewList() {
-  const { review } = useContext(ReviewContext);
+  const { review, isLoading } = useContext(ReviewContext);
 
-    if(!review || review.length === 0) {
-        <p>No reviews found</p>
+    if(!isLoading && (!review || review.length === 0)) {
+        return <p>No reviews found</p>
     }
-    console.log(review)
-  return (
+
+  return isLoading ? 
+    <img src={spinner} alt='Loading' style={{width: '100px', margin: 'auto', display: 'block'}}  /> : (
     <div className="reviews-list">
         {/* Mapped through each object from state with .map */}
         <AnimatePresence>
