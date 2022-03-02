@@ -1,5 +1,4 @@
 import { createContext, useState, useEffect } from "react"
-import { v4 as uuidv4 } from 'uuid'
 
 const ReviewContext = createContext();
 
@@ -23,24 +22,45 @@ export const ReviewProvider = ({ children }) => {
         setIsLoading(false);
     }
 
-    const addReview = (newReview) => {
-        newReview.id = uuidv4();
+    const addReview = async (newReview) => {
+        const response = await fetch('http://localhost:3001/review', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newReview),
+        })
+        const data = await response.json();
         // use the spread operator to take reviews that are already made and putting it into the array
-        setReview([newReview, ...review])
+        setReview([data, ...review])
     }
 
     // Delete review
-    const deleteReview = (id) => {
+    const deleteReview = async(id) => {
         if(window.confirm('Are you sure you want to delete?')) {
+            await fetch(`http://localhost:3001/review/${id}`, {
+                method: 'DELETE',
+            })
+
             setReview(review.filter((item) => item.id !== id ))
         }
     }
 
     // Function to update review item
-    const updateReview = (id, updatedItem) => {
+    const updateReview = async (id, updatedItem) => {
+        const response = await fetch(`http://localhost:3001/review/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedItem)
+        })
+
+        const data = await response.json();
+
         setReview(
             review.map((item) => item.id === id ? { ...item, 
-            ...updatedItem } : item)
+            ...data } : item)
             )
         }
 

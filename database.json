@@ -9,6 +9,11 @@
       "text": "new feedback item",
       "rating": 5,
       "id": 3
+    },
+    {
+      "text": "This is an updated review from the front end",
+      "rating": 3,
+      "id": 5
     }
   ]
 }
