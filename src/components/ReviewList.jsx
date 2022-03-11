@@ -10,7 +10,7 @@ function ReviewList() {
   const { review, isLoading } = useContext(ReviewContext);
 
     if(!isLoading && (!review || review.length === 0)) {
-        return <p>No reviews found</p>
+        return <p>No reviews were found</p>
     }
 
   return isLoading ? 
